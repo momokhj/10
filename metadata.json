@@ -1,0 +1,6 @@
+{
+  "name": "열 개 채우기 대모험 - 10의 보수 픽셀 게임",
+  "description": "구체물을 보고 10의 보수를 익히는 8비트 픽셀 스타일 특수교육 수학 학습 게임",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

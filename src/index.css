@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-pixel: 'Press Start 2P', monospace;
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: #0f172a;
+    color: #0f172a;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-pixel-num {
+  font-family: var(--font-pixel), var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 8-bit crisp stepped border & button tactile depth */
+.pixel-panel {
+  border: 4px solid #1e293b;
+  box-shadow: 6px 6px 0px #0f172a;
+}
+
+.pixel-panel-light {
+  border: 4px solid #1e293b;
+  box-shadow: 4px 4px 0px #1e293b;
+}
+
+.pixel-btn {
+  border: 3px solid #1e293b;
+  box-shadow: 0 4px 0 #1e293b;
+  transition: transform 80ms ease-out, box-shadow 80ms ease-out, background-color 120ms ease-out;
+}
+
+.pixel-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #1e293b;
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #1e293b;
+}
+
+.pixel-btn:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 4px solid #facc15;
+  outline-offset: 2px;
+}
+
+.pixel-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-float-in {
+  animation: float-up 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pop-bounce {
+  0% {
+    transform: scale(0.85);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pop-bounce {
+  animation: pop-bounce 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-in,
+  .animate-pop-bounce {
+    animation: none !important;
+  }
+  .pixel-btn {
+    transition: none !important;
+  }
+}
